@@ -1,0 +1,48 @@
+{% load staticfiles %}
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ирина Вайс | Дизайн интерьеров</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'info/style.css' %}"/>
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="{% static 'info/magnific-popup.css' %}">
+
+    <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Magnific Popup core JS file -->
+    <script src="{% static 'info/js/jquery.magnific-popup.js' %}"></script>
+</head>
+<body>
+{% include 'info/menu.html' %}
+<div class="content-wrap">
+    <div class="content">
+        <div>{{ project.title }}</div>
+        <div>{{ project.short_description }}</div>
+        <div>{{ project.description }}</div>
+        <div class="gallery">
+            {% for image in project.gallery.images.all %}
+                {% thumbnail image "500x500" crop="center" as im %}
+                    <a href="{{ image.path.url }}">
+                        <img src="{{ im.url }}">
+                    </a>
+                {% endthumbnail %}
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% include 'info/footer.html' %}
+</body>
+</html>
+<script type="application/javascript">
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true
+        },
+    });
+</script>

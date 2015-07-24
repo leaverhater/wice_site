@@ -1,0 +1,32 @@
+{% load staticfiles %}
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ирина Вайс | Дизайн интерьеров</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'info/style.css' %}"/>
+</head>
+<body>
+{% include 'info/menu.html' %}
+<div class="content-wrap">
+    <div class="content">
+        {% for project in projects_list %}
+            {% thumbnail project.cover_image "500x500" crop="center" as im %}
+                <a href="{% url 'info:project' project.id %}">
+                    <div class="portfolio-block" style="background-image: url({{ im.url }})">
+                        <div class="portfolio-inner">
+                            <h2>{{ project.title }}</h2>
+
+                            <p>{{ project.short_description }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endthumbnail %}
+
+        {% endfor %}
+    </div>
+</div>
+{% include 'info/footer.html' %}
+</body>
+</html>

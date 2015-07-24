@@ -5,10 +5,10 @@
             <a href="#"><img src="{% static 'info/images/logo.png' %}"></a>
         </div>
         <div class="menu-item-wrap">
-            <a href="#">
+            <a href="{% url 'info:index' %}">
                 <div class="menu-item">Главная</div>
             </a></div>
-        <div class="menu-item-wrap"><a href="#">
+        <div class="menu-item-wrap"><a href="{% url 'info:portfolio' %}">
             <div class="menu-item">Проекты</div>
         </a></div>
         <div class="menu-item-wrap"><a href="#">
