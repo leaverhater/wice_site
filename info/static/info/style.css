@@ -12,7 +12,7 @@
 body {
     margin: 0 auto;
     padding: 0;
-    background-color: #fff;
+    background-color: #e8e8e8;
     color: #444;
     font-family: Georgia, Verdana, Helvetica;
     /*font-feature-settings: "'liga' 1";*/
@@ -26,6 +26,12 @@ body {
     text-decoration: none;
     text-transform: none;
     word-spacing: 0;
+}
+
+.body-wrap {
+    background-color: #ffffff;
+    width: 1080px;
+    margin: 0 auto;
 }
 
 p {
@@ -248,4 +254,19 @@ div.footer {
 .portfolio-block:hover h2 {
     color: #F28955;
     transition: .1s;
+}
+
+.project-descr {
+    border-style: solid none;
+    border-width: 1px 0;
+    border-color: #F28955;
+    padding: 10px 20px;
+    text-indent: 40px;
+    text-align: justify;
+}
+
+.gallery-item {
+    display: inline-block;
+    width: 240px;
+    margin: 10px;
 }
