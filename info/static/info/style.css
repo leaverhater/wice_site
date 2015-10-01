@@ -12,7 +12,7 @@
 body {
     margin: 0 auto;
     padding: 0;
-    background-color: #e8e8e8;
+    background-color: #f7f7f7;
     color: #444;
     font-family: Georgia, Verdana, Helvetica;
     /*font-feature-settings: "'liga' 1";*/
@@ -29,7 +29,7 @@ body {
 }
 
 .body-wrap {
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
     width: 1080px;
     margin: 0 auto;
 }
@@ -41,7 +41,7 @@ p {
 h2 {
     /*font-family: Verdana, Times, serif;*/
     font-weight: normal;
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 
 div.header-wrap {
@@ -52,11 +52,14 @@ div.header {
     margin: 0 auto;
     width: 1080px;
     text-align: center;
+    /*background-color: #ffffff;*/
 }
 
 div.menu-wrap {
     width: 1080px;
     margin: 20px auto;
+    /*background-color: #ffffff;*/
+
 }
 
 .menu {
@@ -102,7 +105,8 @@ div.menu-item:hover {
 
 div.content-wrap {
     width: 1080px;
-    margin: 30px auto;
+    margin: 30px auto 5px auto;
+    /*background-color: #ffffff;*/
 }
 
 div.content {
@@ -127,7 +131,7 @@ div.content-quote {
 
 div.content-quote p {
     margin: 0 auto;
-    padding: 15px;
+    padding: 10px;
 
 }
 
@@ -141,7 +145,7 @@ div.content-right {
 
 div.content-about {
     width: 100%;
-    height: 200px;
+    /*height: 200px;*/
 }
 
 div.content-about h2 {
@@ -151,9 +155,9 @@ div.content-about h2 {
 }
 
 div.content-about p {
-    padding: 15px;
+    padding: 5px 15px 15px 15px;
     width: 100%;
-
+    margin: 0 auto;
 }
 
 .content-dark {
@@ -192,15 +196,19 @@ div.content-contact p {
 
 div.footer-wrap {
     border-top-style: solid;
-    border-top-width: 1px;
+    border-top-width: 2px;
+    border-color: #F28955;
     width: 1080px;
-    margin: 20px auto;
+    margin: 5px auto;
 }
 
 div.footer {
-    display: inline;
+    /*display: inline;*/
     margin: 0 auto;
-    width: 60%;
+    /*background-color: #444444;*/
+    /*color: #ffffff;*/
+    padding: 10px;
+    /*width: 60%;*/
     text-align: center;
 }
 
@@ -208,7 +216,7 @@ div.footer {
     display: inline-block;
     vertical-align: top;
     width: 30%;
-    margin: 5px;
+    margin: 5px 30px 5px 0px;
     white-space: normal;
     background-size: 100%;
     height: 300px;
@@ -257,8 +265,8 @@ div.footer {
 }
 
 .project-descr {
-    border-style: solid none;
-    border-width: 1px 0;
+    border-style: solid none none none;
+    border-width: 2px 0;
     border-color: #F28955;
     padding: 10px 20px;
     text-indent: 40px;
@@ -269,4 +277,13 @@ div.footer {
     display: inline-block;
     width: 240px;
     margin: 10px;
+}
+
+h2.title {
+    font-size: 1.4em;
+    border-style: none none solid none;
+    border-width: 0 0 5px 0;
+    border-color: #F28955;
+    padding: 0 0 10px 0;
+    /*display:inline-block;*/
 }

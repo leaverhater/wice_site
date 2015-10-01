@@ -15,26 +15,50 @@
     <!-- Magnific Popup core JS file -->
     <script src="{% static 'info/js/jquery.magnific-popup.js' %}"></script>
     <script src="{% static 'info/js/portfolio.pack.min.js' %}"></script>
+
+    <script type='text/javascript'
+            src='https://amazingcarousel.com/wp-content/uploads/amazingcarousel/sharedengine/amazingcarousel.js?ver=1.2'></script>
 </head>
 <body>
 {% include 'info/menu.html' %}
 <div class="content-wrap">
     <div class="content">
-        <h2>{{ project.title }}</h2>
+        <h2 class="title">{{ project.title }}</h2>
 
-        <div class="project-gallery">
-            {% for image in project.gallery.images.all %}
-                {% thumbnail image "240x180" crop="center" as im %}
-                    <div class="gallery-item">
-                        <a href="{{ image.path.url }}">
-                            <img src="{{ im.url }}">
-                        </a>
-                    </div>
-                {% endthumbnail %}
-            {% endfor %}
+        <div id="amazingcarousel-container-1">
+            <div id="amazingcarousel-1"
+                 style="display:block;position:relative;width:100%;max-width:720px;margin:0px auto 0px;">
+                <div class="amazingcarousel-list-container">
+                    <ul class="amazingcarousel-list">
+                        {% for image in project.gallery.images.all %}
+                            {% thumbnail image "240x180" crop="center" as im %}
+                                <li class="amazingcarousel-item">
+                                    <div class="amazingcarousel-item-container">
+                                        <div class="amazingcarousel-image">
+                                            <a href="{{ image.path.url }}" class="html5lightbox"
+                                               data-group="amazingcarousel-1"><img
+                                                    src="{{ im.url }}"
+                                                    alt="Golden Wheat Field"/></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endthumbnail %}
+                        {% endfor %}
+                    </ul>
+                    <div class="amazingcarousel-prev"></div>
+                    <div class="amazingcarousel-next"></div>
+                </div>
+                <div class="amazingcarousel-nav"></div>
+                <div class="amazingcarousel-engine" style="display:none;"><a href="https://amazingcarousel.com">JavaScript
+                    Scroller</a></div>
+                <div class="amazingcarousel-engine" style="display:none;"><a href="https://amazingcarousel.com">WordPress
+                    Image Carousel</a></div>
+            </div>
         </div>
-        <div class="project-descr">{{ project.description }}</div>
+        <script src="https://amazingcarousel.com/wp-content/uploads/amazingcarousel/1/carouselengine/initcarousel.js"></script>
     </div>
+    <div class="project-descr">{{ project.description }}</div>
+</div>
 </div>
 {% include 'info/footer.html' %}
 </body>
@@ -47,7 +71,7 @@
             enabled: true
         },
     });
-    var p = $(".project-gallery img").portfolio({
+    var p = $(".gallery-img").portfolio({
         enableKeyboardNavigation: true, // enable / disable keyboard navigation (default: true)
         loop: false, // loop on / off (default: false)
         easingMethod: 'easeOutQuint', // other easing methods please refer: http://gsgd.co.uk/sandbox/jquery/easing/
