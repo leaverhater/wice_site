@@ -16,7 +16,9 @@ def about(request):
 def contacts(request):
     return render(request, 'info/contacts.html')
 
+
 class PortfolioView(generic.ListView):
+    model = Project
     template_name = 'info/portfolio.html'
     context_object_name = 'projects_list'
 
@@ -26,3 +28,4 @@ class PortfolioView(generic.ListView):
 
 class ProjectView(generic.DetailView):
     model = Project
+    template_name = 'info/project_detail.html'

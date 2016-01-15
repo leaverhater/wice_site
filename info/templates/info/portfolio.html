@@ -12,7 +12,7 @@
 <div class="content-wrap">
     <div class="content">
         {% for project in projects_list %}
-            {% thumbnail project.cover_image "300x300" crop="center" as im %}
+            {% thumbnail project.cover_image.path "300x300" crop="center" as im %}
                 <a href="{% url 'info:project' project.id %}">
                     <div class="portfolio-block" style="background-image: url({{ im.url }})">
                         <div class="portfolio-inner">

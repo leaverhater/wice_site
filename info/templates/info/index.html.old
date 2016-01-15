@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ирина Вайс | Дизайн интерьеров</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'info/style.css' %}"/>
+</head>
+<body>
+<div class="body-wrap">
+{% include 'info/menu.html' %}
+<div class="content-wrap">
+    <div class="content">
+        <div class="content-left">
+            <img class="content-block" src="{% static 'info/images/image0.jpg' %}">
+
+            <div class="content-quote content-block content-dark"><p>Небольшая цитата о дизайне интерьеров</p></div>
+            <div class="content-block">
+                <img class="content-subblock" src="{% static 'info/images/image3.jpg' %}">
+                <img class="content-subblock" src="{% static 'info/images/image2.jpg' %}">
+            </div>
+        </div>
+        <div class="content-right">
+            <div class="content-about content-block content-dark">
+                <h2>Обо мне</h2>
+                <p>
+                    Ирина Вайс - дизайнер интерьеров. Куча другого текста.
+                </p>
+            </div>
+            <img class="content-photo content-block"
+                 src="http://cs5089.vk.me/u121941178/-6/z_0474e100.jpg">
+        </div>
+
+    </div>
+</div>
+</div>
+{% include 'info/footer.html' %}
+</body>
+</html>

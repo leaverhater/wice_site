@@ -12,16 +12,18 @@ class Gallery(models.Model):
     def __str__(self):
         return str(self.name)
 
+
 class Image(models.Model):
     date_created = models.DateTimeField('date published')
     gallery = models.ForeignKey(Gallery, null=True, related_name='images')
     path = ImageField(upload_to='info/')
 
     def __unicode__(self):
-        return self.path
+        return self.path.url
 
     def __str__(self):
-        return str(self.path)
+        return str(self.path.url)
+
 
 class Project(models.Model):
     title = models.CharField(max_length=255)
