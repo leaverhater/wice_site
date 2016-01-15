@@ -19,10 +19,10 @@ class Image(models.Model):
     path = ImageField(upload_to='info/')
 
     def __unicode__(self):
-        return self.path.url
+        return self.path
 
     def __str__(self):
-        return str(self.path.url)
+        return str(self.path)
 
 
 class Project(models.Model):
