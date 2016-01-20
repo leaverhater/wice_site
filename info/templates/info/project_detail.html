@@ -9,15 +9,18 @@
     <!-- Magnific Popup core CSS file -->
     <link rel="stylesheet" href="{% static 'info/magnific-popup.css' %}">
 
-    <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'info/slick/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'info/slick/slick-theme.css' %}"/>
+
 
     <!-- Magnific Popup core JS file -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="{% static 'info/js/jquery.magnific-popup.js' %}"></script>
     <script src="{% static 'info/js/portfolio.pack.min.js' %}"></script>
 
-    <script type='text/javascript'
-            src='https://amazingcarousel.com/wp-content/uploads/amazingcarousel/sharedengine/amazingcarousel.js?ver=1.2'></script>
+
+    <script type="text/javascript" src="{% static 'info/js/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'info/slick/slick.js' %}"></script>
 </head>
 <body>
 {% include 'info/menu.html' %}
@@ -25,65 +28,35 @@
     <div class="content">
         <h2 class="title">{{ project.title }}</h2>
 
-        <div id="amazingcarousel-container-1">
-            <div id="amazingcarousel-1"
-                 style="display:block;position:relative;width:100%;max-width:720px;margin:0px auto 0px;">
-                <div class="amazingcarousel-list-container">
-                    <ul class="amazingcarousel-list">
-                        {% for image in project.gallery.images.all %}
-                            {% thumbnail image "240x180" crop="center" as im %}
-                                <li class="amazingcarousel-item">
-                                    <div class="amazingcarousel-item-container">
-                                        <div class="amazingcarousel-image">
-                                            <a href="{{ image.path.url }}" class="html5lightbox"
-                                               data-group="amazingcarousel-1"><img
-                                                    src="{{ im.url }}"
-                                                    alt="Golden Wheat Field"/></a>
-                                        </div>
-                                    </div>
-                                </li>
-                            {% endthumbnail %}
-                        {% endfor %}
-                    </ul>
-                    <div class="amazingcarousel-prev"></div>
-                    <div class="amazingcarousel-next"></div>
-                </div>
-                <div class="amazingcarousel-nav"></div>
-                <div class="amazingcarousel-engine" style="display:none;"><a href="https://amazingcarousel.com">JavaScript
-                    Scroller</a></div>
-                <div class="amazingcarousel-engine" style="display:none;"><a href="https://amazingcarousel.com">WordPress
-                    Image Carousel</a></div>
-            </div>
+        <div class="carousel">
+            {% for image in project.gallery.images.all %}
+                {% thumbnail image "240x180" crop="center" as im %}
+                    <div>
+                        <a class="carousel-item" href="{{ image.path.url }}"><img
+                                src="{{ im.url }}"/></a>
+                    </div>
+                {% endthumbnail %}
+            {% endfor %}
         </div>
-        <script src="https://amazingcarousel.com/wp-content/uploads/amazingcarousel/1/carouselengine/initcarousel.js"></script>
+        <div class="project-descr">{{ project.description }}</div>
     </div>
-    <div class="project-descr">{{ project.description }}</div>
 </div>
-</div>
+
 {% include 'info/footer.html' %}
 </body>
 </html>
 <script type="application/javascript">
-    $('.project-gallery').magnificPopup({
+    $('.carousel').magnificPopup({
         delegate: 'a',
         type: 'image',
         gallery: {
             enabled: true
-        },
+        }
+        // other options
     });
-    var p = $(".gallery-img").portfolio({
-        enableKeyboardNavigation: true, // enable / disable keyboard navigation (default: true)
-        loop: false, // loop on / off (default: false)
-        easingMethod: 'easeOutQuint', // other easing methods please refer: http://gsgd.co.uk/sandbox/jquery/easing/
-        height: '300px', // gallery height
-        width: '100%', // gallery width in pixels or in percentage
-        lightbox: false, // dim off other images, highlights only currently viewing image
-        showArrows: true, // show next / prev buttons
-        logger: false, // for debugging purpose, turns on/off console.log() statements in the script
-        spinnerColor: '#000', // Ajax loader color
-        offsetLeft: -4, // position left value for current image
-        opacityLightbox: '0.2' // opacity of other images which are not active
-
+    $('.carousel').slick({
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 1
     });
-    p.init();
 </script>

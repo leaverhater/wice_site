@@ -282,8 +282,17 @@ div.footer {
 h2.title {
     font-size: 1.4em;
     border-style: none none solid none;
-    border-width: 0 0 5px 0;
+    border-width: 0 0 2px 0;
     border-color: #F28955;
     padding: 0 0 10px 0;
     /*display:inline-block;*/
+}
+
+.carousel {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.carousel img {
+    margin-left: 10px;
 }
